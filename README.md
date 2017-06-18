@@ -4,52 +4,52 @@ Website News using MEAN stack
 Cấu trúc thư thục
 MVC
 app
-controllers
-admin.js
-home.js
-modules
-admin.js
-home.js
-routes
-routes.js
-uploads
-news 
-views
-admin
-users
-users.pug
-category
-add.pug 
-feedback
-list.pug 
-news 
-add.pug 
-list.pug 
-index.pug
-header.pug
-home
-layout 
-layout_header.pug 
-news 
-detail.pug 
-views.pug 
-users 
-singup.pug 
-index.pug
-feedback.pug 
- 
-app.js
-public
-images
-css
-style.css
-js
-functions.js
-libs
-angular
-angular.min.js
-bootstrap
-server.js
+	controllers
+		admin.js
+		home.js
+	modules
+		admin.js
+		home.js
+	routes
+		routes.js
+		uploads
+			news 
+	views
+		admin
+			users
+				users.pug
+			category
+				add.pug 
+			feedback
+				list.pug 
+			news 
+				add.pug 
+				list.pug 
+			index.pug
+			header.pug
+		home
+			layout 
+				layout_header.pug 
+			news 
+				detail.pug 
+				views.pug 
+			users 
+				singup.pug 
+			index.pug
+			feedback.pug 
+
+		app.js
+	public
+		images
+		css
+			style.css
+		js
+			functions.js
+		libs
+			angular
+				angular.min.js
+			bootstrap
+	server.js
 Làm việc với file server.js
 cài đặt & Khai báo các module 
 var express 	 	 = require('express'),//npm install express
