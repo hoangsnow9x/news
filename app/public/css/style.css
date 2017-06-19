@@ -319,6 +319,10 @@ section .bottom .title,.sidebar .bottom .title {
 	width: 95%;
 	height: 100px;
 	padding-left: 10px;
+	padding-top: 10px;
+	border-radius: 10px;
+	border: 2px solid rgba(0, 218, 255, 0.61);
+	background: #eee;
 }
 /* feedback */
 .wrapper .headding {
@@ -342,4 +346,14 @@ section .bottom .title,.sidebar .bottom .title {
 	height: 100px;
 	margin-bottom: 10px;
 	padding: 10px;
+}
+
+.listNews, .detail {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+}
+.listNews h1, .listNews img,.detail h1, .detail img {
+	padding: 10px 0;
 }
