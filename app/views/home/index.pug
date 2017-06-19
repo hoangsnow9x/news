@@ -1,0 +1,144 @@
+doctype
+html(ng-app="myApp")
+	head
+		title demo by hoang kun
+		meta(charset="utf-8")
+		link(rel="stylesheet", href="public/libs/font-awesome/css/font-awesome.min.css")
+		link(rel="stylesheet", href="public/libs/slick/slick.css")
+		link(rel="stylesheet", href="public/css/style.css")
+		
+		
+	body(ng-controller="myController")
+		.main
+			include layout/layout_header.pug
+			
+			article
+				div.wrapper
+						div.slide
+							div.slide__show
+								div(ng-repeat='sl in slide').slide__item
+									div.image
+										a(href="/detail/{{sl._id}}")
+											img(src="uploads/news/{{sl.image}}")
+									div.info
+										a(href="/detail/{{sl._id}}") {{sl.title}}
+										p {{sl.summary}}
+							div.slide__arrow
+								button.prev
+									i.fa.fa-angle-left
+								button.next
+									i.fa.fa-angle-right
+						div.hr
+							p
+						div.headding
+								h3
+									a(href="/views?v=tamsu") Tâm sự
+								a(href="/views?v=tamsu") 
+									span Xem thêm
+									i.fa.fa-long-arrow-right
+						div.tamsu
+							div(ng-repeat='ts in tamsu').item
+								a(href="/detail/{{ts._id}}").image
+									img(src="uploads/news/{{ts.image}}", alt="")
+								a(href="/detail/{{ts._id}}").title {{ts.title}}
+						div.hr
+							p
+						div.headding
+								h3
+									a(href="/views?v=meovat") Mẹo vặt
+								a(href="/views?v=meovat") 
+									span Xem thêm
+									i.fa.fa-long-arrow-right
+						div.meovat
+							div.left
+								a(href="/detail/{{meovatLeft._id}}").image
+									img(src="uploads/news/{{meovatLeft.image}}", alt="")
+								a(href="/detail/{{meovatLeft._id}}").title {{meovatLeft.title}}
+								p {{meovatLeft.summary}}
+							div.right
+								div(ng-repeat="r in meovatRight").item
+									a(href="").image
+										img(src="uploads/news/{{r.image}}", alt="")
+									a(href="").title {{r.title}}
+						section
+							.item
+								div.hr
+									p
+								div.headding
+									h3
+										a(href="/views?v=lamdep") Làm đẹp
+								.top
+									a(href="/detail/{{lamdepTop._id}}").image
+										img(src="uploads/news/{{lamdepTop.image}}", alt="")
+									a(href="/detail/{{lamdepTop._id}}").title {{lamdepTop.title}}
+									p {{lamdepTop.summary}}
+								.bottom(ng-repeat="l in lamdepBottom")
+									a(href="/detail/{{l._id}}").image
+										img(src="uploads/news/{{l.image}}", alt="")
+									a(href="/detail/{{l._id}}").title {{l.title}}
+									
+
+							.item
+
+								div.hr
+									p
+								div.headding
+									h3
+										a(href="/views?v=noitro") Nội trợ
+								.top
+									a(href="/detail/{{noitroTop._id}}").image
+										img(src="uploads/news/{{noitroTop.image}}", alt="")
+									a(href="/detail/{{noitroTop._id}}").title {{noitroTop.title}}
+									p {{noitroTop.summary}}
+								.bottom(ng-repeat="l in noitroBottom")
+									a(href="/detail/{{l._id}}").image
+										img(src="uploads/news/{{l.image}}", alt="")
+									a(href="/detail/{{l._id}}").title {{l.title}}
+						div.hr
+							p
+						div.headding
+								h3
+									a(href="/views?v=dulich") Du lịch
+								a(href="/views?v=dulich") 
+									span Xem thêm
+									i.fa.fa-long-arrow-right
+						div.meovat
+							div.left
+								a(href="/detail/{{dulichLeft._id}}").image
+									img(src="uploads/news/{{dulichLeft.image}}", alt="")
+								a(href="/detail/{{dulichLeft._id}}").title {{dulichLeft.title}}
+								p {{dulichLeft.summary}}
+							div.right
+								div(ng-repeat="r in dulichRight").item
+									a(href="/detail/{{r._id}}").image
+										img(src="uploads/news/{{r.image}}", alt="")
+									a(href="/detail/{{r._id}}").title {{r.title}}
+				div.sidebar
+					.headding Xem nhiều
+					ul.seemore
+						li(ng-repeat="see in repeatSeemore")
+							a(href="") 
+								i.fa.fa-star-o
+								span {{see.title}} 
+					.headding 
+						a(href="/views?v=suckhoe") Sức khỏe
+					.item
+						.top
+							a(href="/detail/{{suckhoeTop._id}}").image
+								img(src="uploads/news/{{suckhoeTop.image}}", alt="")
+							a(href="/detail/{{suckhoeTop._id}}").title {{suckhoeTop.title}}
+							p {{suckhoeTop.summary}}
+						.bottom(ng-repeat="l in suckhoeBottom")
+							a(href="/detail/{{l._id}}").image
+								img(src="uploads/news/{{l.image}}", alt="")
+							a(href="/detail/{{l._id}}").title {{l.title}}
+
+		script(src="public/libs/angular/angular.min.js")
+		script(src="public/libs/jquery/jquery.min.js")
+		script(src="public/libs/slick/slick.min.js")
+		script(src="public/libs/angular/angular-cookies.js")
+		script(src="modules/home.js")
+		script(src="public/js/functions.js")
+			
+
+	

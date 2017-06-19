@@ -1,0 +1,41 @@
+#header
+header
+	h3 
+		a(href="/")
+			i.fa.fa-home 
+			span Hello everyone!
+	a(href="/admin") Admin page
+.content
+	.login
+		div(ng-hide="currentUser")
+			h3 Login
+			form
+				input(type='text', ng-model="login.username", placeholder="Tên đăng nhập")
+				input(type='password',ng-model="login.password",placeholder="Mật khẩu")
+				input(type="submit" , value="Login",ng-click="btnLogin()")
+				a(href="/singup") Not a member? Singup
+		div(ng-show="currentUser")
+			p
+				span Hello, 
+					b {{currentUser}}
+			a(href="", ng-click="btn_logout()") Logout
+			
+	.boxChat
+		form(ng-show="currentUser")
+			input(type="text", placeholder="Bạn đang nghĩ gì?", ng-model="welcome.text").txtChat
+			input(type="submit", value="Gửi", ng-click="btnChat(welcome)").btnChat
+		.display {{txtChat}}
+		div(ng-repeat="x in welcome")
+			.item
+				i.fa.fa-user
+				span.color_blue {{x.message}}
+				button(ng-click="removeMessage(x._id)").remove X
+				p
+					span Post by: 
+					b {{x.postBy}}
+div.menu
+		ul
+			li(ng-repeat="cate in category")
+				a(href="/views/{{cate._id}}") {{cate.title}}
+			li
+				a(href="/feedback") Phản hồi

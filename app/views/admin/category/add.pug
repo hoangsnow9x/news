@@ -1,0 +1,26 @@
+doctype
+html(ng-app="myApp")
+	head
+		title Quản lý danh mục
+		link(rel="stylesheet", href="../../public/css/admin.css")
+		
+	body(ng-controller="myController")
+		include ../header.pug
+		div.main
+			div.title Danh mục tin tức
+			div.add_news
+				form(name="myform",method='POST', action="http://localhost:3000/admin/category/add")
+					p
+						span Tiêu đề
+						input(type="text", placeholder="Tên danh mục", ng-model="title", required)
+					p
+						span Mã
+						input(type="text", placeholder="Mã danh mục", ng-model="code", required)
+					input(type="submit",value="Upload" ng-click="myform.$valid && btnUploadCate()")
+			div.title List danh mục
+			ul(ng-repeat="x in listCategory")
+				li 
+					span Tên danh mục : {{x.title}} & 
+					span Mã danh mục: {{x.code}}
+		script(src="../../public/libs/angular/angular.min.js")
+		script(src="../../modules/admin.js")

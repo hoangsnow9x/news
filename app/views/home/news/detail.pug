@@ -1,0 +1,51 @@
+doctype
+html(ng-app="myApp")
+	head
+		title demo by hoang kun
+		meta(charset="utf-8")
+		link(rel="stylesheet", href="../../../public/libs/font-awesome/css/font-awesome.min.css")
+		link(rel="stylesheet", href="../../../public/libs/slick/slick.css")
+		link(rel="stylesheet", href="../../../public/css/style.css")
+		
+	body(ng-controller="myController")
+		.main
+			include ../layout/layout_header.pug			
+			article
+				div.wrapper
+					.detail
+						h1= news.title
+						p= news.summary
+						img(src="../../../uploads/news/" + news.image, alt="")
+
+						div.comment
+							form
+								textarea(ng-model="comment", placeholder="Cảm nghĩ của bạn về tin tức này....")
+								input(type="submit", value="Bình luận", ng-click="btnComment()" )
+						div(ng-repeat="cm in comments").display
+							p 
+								i.fa.fa-user-secret
+								span {{cm.user}}
+							i {{cm.content}}
+				div.sidebar
+					.headding Xem nhiều
+					ul.seemore
+						li(ng-repeat="see in repeatSeemore")
+							a(href="/detail/{{see._id}}") 
+								i.fa.fa-star-o
+								span {{see.title}} 
+					.headding
+						a(href="/views?v=suckhoe") Sức khỏe
+					.item
+						.top
+							a(href="/detail/{{suckhoeTop._id}}").image
+								img(src="../../../uploads/news/{{suckhoeTop.image}}", alt="")
+							a(href="/detail/{{suckhoeTop._id}}").title {{suckhoeTop.title}}
+							p {{suckhoeTop.summary}}
+						.bottom(ng-repeat="l in suckhoeBottom")
+							a(href="/detail/{{l._id}}").image
+								img(src="../../../uploads/news/{{l.image}}", alt="")
+							a(href="/detail/{{l._id}}").title {{l.title}}
+
+		script(src="../../../public/libs/angular/angular.min.js")
+		script(src="../../../public/libs/angular/angular-cookies.js")
+		script(src="../../../modules/home.js")

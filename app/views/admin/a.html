@@ -1,0 +1,51 @@
+#header
+header.main
+	div.top
+		a(href="/admin") Admin control page
+		a(href="/") Xem website
+	nav
+		ul
+			li
+				a(href="/admin/news/list") Tin tức
+				ul
+					li
+						a(href="/admin/news/add") Thêm mới tin tức
+					li
+						a(href="/admin/news/list") Danh sách tin tức
+			li
+				a(href="/admin/users/list") Thành viên
+			li
+				a(href="/admin/category/add") Danh mục
+			li
+				a(href="/admin/feedback") Góp ý
+				doctype
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin page</title>
+	<link rel="stylesheet" href="public/css/admin.css">
+</head>
+<body>
+	<header class="main">
+		<div class="top">
+			<a href="">Admin control page</a>
+			<a href="">Xem website</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="">Tin tức</a>
+					<ul>
+						<li><a href="">Thêm mới tin tức</a></li>
+						<li><a href="">Danh sách tin tức</a></li>
+					</ul>
+				</li>
+				<li><a href="">Thành viên</a></li>
+				<li><a href="">Danh mục</a></li>
+				<li><a href="">Góp ý</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>

@@ -1,0 +1,28 @@
+doctype
+html(ng-app="myApp")
+	head
+		title Trang quản trị góp ý
+		link(rel="stylesheet", href="../../public/css/admin.css")
+	body(ng-controller="myController")
+		include ../header.pug
+		div.main
+			div.title Thư góp ý
+			table(border="1", cellpadding="10")
+				tr
+					td Họ và tên
+					td Email
+					td Nội dung
+				tr(ng-repeat="i in feedback")
+					td {{i.fullname}}
+					td {{i.email}}
+					td {{i.content}}
+			div(ng-repeat="x in contactlist").user
+				div.repeat
+					div.item {{x.fullname}}
+					div.item {{x.username}}
+					div.item {{x.password}}
+					div.item
+						button(ng-click="edit(x._id)") Sửa
+						button(ng-click="remove(x._id)") Xóa
+		script(src="../../public/libs/angular/angular.min.js")
+		script(src="../../modules/admin.js")

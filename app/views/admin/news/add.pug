@@ -1,0 +1,45 @@
+doctype
+html(ng-app="myApp")
+	head
+		title Thêm tin tức
+		link(rel="stylesheet", href="../../public/css/admin.css")
+		
+	body(ng-controller="myController")
+		include ../header.pug
+		div.main
+			div.title Thêm mới tin tức
+			div.add_news
+				form(name="myform",encytype='multipart/form-data',method='POST', action="http://localhost:3000/admin/news/add")
+					p
+						span Tiêu đề
+						input(type="text", placeholder="Tiêu đề tin", ng-model="news.title", required)
+					p
+						span Ảnh
+						input(type="file", ng-model="news.image", name="fileupload")#file
+					p
+						span Danh mục
+						select(ng-model="news.category")
+							option(ng-repeat="x in category", ng-option="{{x.code}}") {{x.title}}
+					p.summary
+						span Nội dung tóm tắt
+						textarea(rows="4", cols="50", ng-model="news.summary", required)
+					//- p.description
+					//- 	span Mô tả
+					//- 	textarea(name='name_description', ng-model="news.description").tinymce
+					//- 	p {{news.description}}
+					input(type="submit",value="Upload", ng-click="$valid='myform' && btnUpload()")
+					h2 Tiêu đề: {{item_news.title}}
+					p Danh mục: {{item_news.category}}
+					img(ng-src="http://localhost:3000/uploads/news/{{item_news.image}}")
+					p Tóm tắt: {{item_news.summary}}
+
+		script(src="../../public/libs/angular/angular.min.js")
+		script(src="../../public/libs/jquery/jquery.min.js")
+		//- script(src="../../public/libs/tinymce/tinymce.min.js")
+		//- script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-tinymce/0.0.18/tinymce.min.js")
+		//- script(src="../../public/js/tinymce.js")
+		script(src="../../modules/admin.js")
+
+
+
+		

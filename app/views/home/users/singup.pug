@@ -1,0 +1,26 @@
+doctype
+html(ng-app="myApp")
+	head
+		title Trang đăng ký
+		meta(charset="utf-8")
+		link(rel="stylesheet", href="public/css/style.css")
+		link(rel="stylesheet", href="public/libs/font-awesome/css/font-awesome.min.css")
+	body(ng-controller="myController")
+		.main
+			header
+				h3 
+					a(href="/")
+						i.fa.fa-home 
+						span Hello everyone!
+				a(href="/admin") Admin page
+			form(name="myform").singup
+				h3 Đăng ký thành viên
+				input(type="text", placeholder="Họ và tên", ng-model="singup.fullname", required)
+				input(placeholder="Tên đăng nhập", ng-model="singup.username", required)
+				input(type="password",placeholder="Mật khẩu", ng-model="singup.password", required)
+				input(ng-click="$valid='myform' && btnSingup()", value="Đăng ký",type="submit")
+			a(href="/") Quay lại trang chủ
+				
+		script(src="public/libs/angular/angular.min.js")
+		script(src="public/libs/angular/angular-cookies.js")
+		script(src="modules/home.js")

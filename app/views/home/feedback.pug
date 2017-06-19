@@ -1,0 +1,50 @@
+doctype
+html(ng-app="myApp")
+	head
+		title Chuyên mục góp ý
+		meta(charset="utf-8")
+		link(rel="stylesheet", href="public/libs/font-awesome/css/font-awesome.min.css")
+		link(rel="stylesheet", href="public/css/style.css")
+	body(ng-controller="myController")
+		.main
+			include layout/layout_header.pug
+
+			article
+				div.wrapper
+					.headding Chuyên mục góp ý
+					form(name='myform').feedback
+						p
+							h4 Họ và tên:
+							input(type="text", ng-model="feedback.fullname",required)
+						p
+							h4 Email:
+							input(type="email", ng-model="feedback.email",required)
+						p
+							h4 Nội dung:
+							textarea(ng-model="feedback.content",required)
+						input(type="submit", ng-click="$valid = 'myform' && btnFeedback()")
+				div.sidebar
+						.headding Xem nhiều
+						ul.seemore
+							li(ng-repeat="see in repeatSeemore")
+								a(href="") 
+									i.fa.fa-star-o
+									span {{see.title}} 
+						.headding Sức khỏe
+						.item
+							.top
+								a(href="/detail/{{suckhoeTop._id}}").image
+									img(src="uploads/news/{{suckhoeTop.image}}", alt="")
+								a(href="/detail/{{suckhoeTop._id}}").title {{suckhoeTop.title}}
+								p {{suckhoeTop.summary}}
+							.bottom(ng-repeat="l in suckhoeBottom")
+								a(href="/detail/{{l._id}}").image
+									img(src="uploads/news/{{l.image}}", alt="")
+								a(href="/detail/{{l._id}}").title {{l.title}}
+
+		script(src="public/libs/angular/angular.min.js")
+		script(src="public/libs/jquery/jquery.min.js")
+		script(src="public/libs/slick/slick.min.js")
+		script(src="public/libs/angular/angular-cookies.js")
+		script(src="modules/home.js")
+		script(src="public/js/functions.js")

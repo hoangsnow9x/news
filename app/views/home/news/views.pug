@@ -1,0 +1,55 @@
+doctype
+html(ng-app="myApp")
+	head
+		title demo by hoang kun
+		meta(charset="utf-8")
+		link(rel="stylesheet", href="../../../public/libs/font-awesome/css/font-awesome.min.css")
+		link(rel="stylesheet", href="../../../public/libs/slick/slick.css")
+		//- link(rel="stylesheet", href="../../../public/libs/owl-carousel/owl.carousel.min.css")
+		//- link(rel="stylesheet", href="../../../public/libs/owl-carousel/owl.theme.default.min.css")
+		link(rel="stylesheet", href="../../../public/css/style.css")
+		
+		
+	body(ng-controller="myController")
+		.main
+			include ../layout/layout_header.pug
+			
+			article
+				div.wrapper
+					h1= title
+						each item in data
+							.listNews
+								h1= item.title
+								p= item.summary
+								img(src="../../../uploads/news/" + item.image, alt="")
+							
+				div.sidebar
+					.headding Xem nhiều
+					ul.seemore
+						li(ng-repeat="see in repeatSeemore")
+							a(href="/detail/{{see._id}}") 
+								i.fa.fa-star-o
+								span {{see.title}} 
+					.headding
+						a(href="/views?v=suckhoe") Sức khỏe
+					.item
+						.top
+							a(href="").image
+								img(src="../../../uploads/news/{{suckhoeTop.image}}", alt="")
+							a(href="").title {{suckhoeTop.title}}
+							p {{suckhoeTop.summary}}
+						.bottom(ng-repeat="l in suckhoeBottom")
+							a(href="/detail/{{l._id}}").image
+								img(src="../../../uploads/news/{{l.image}}", alt="")
+							a(href="").title {{l.title}}
+
+		script(src="../../../public/libs/angular/angular.min.js")
+		script(src="../../../public/libs/jquery/jquery.min.js")
+		script(src="../../../public/libs/slick/slick.min.js")
+		//- script(src="../../../public/libs/owl-carousel/owl.carousel.min.js")
+		script(src="../../../public/libs/angular/angular-cookies.js")
+		script(src="../../../modules/home.js")
+		script(src="../../../public/js/functions.js")
+			
+
+	
