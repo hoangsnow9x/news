@@ -8,7 +8,7 @@ app.controller('myController', ['$scope',  '$http', function($scope,  $http){
 	$scope.news = {};
 
 	$scope.btnUpload = function(){
-		
+
 		var formData = new FormData;
 
 		for(key in $scope.news){
@@ -45,7 +45,7 @@ app.controller('myController', ['$scope',  '$http', function($scope,  $http){
 		$http.post('http://localhost:3000/admin/category/add', {title: $scope.title, code: $scope.code }).then(function(res){
 			// alert(res.data);
 			console.log(res.data);
-		});  
+		});
     refresh();
   }
   var refreshUser = function(){
@@ -63,10 +63,10 @@ app.controller('myController', ['$scope',  '$http', function($scope,  $http){
       console.log(res);
       refresh();
     });
-    
-    
+
+
   }
-  
+
   // xóa dữ liệu trên client sau khi server đã xóa
   $scope.remove =function(id){
     console.log(id);

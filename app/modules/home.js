@@ -23,7 +23,7 @@ app.controller('myController', ['$scope','$http','$cookies', function($scope, $h
 			refresh();
 		}
 	}
-	
+
 	// event delete message
 	$scope.removeMessage = function(id){
 		$http.delete('/message/'+id).then(function(res){
@@ -39,7 +39,7 @@ app.controller('myController', ['$scope','$http','$cookies', function($scope, $h
 			// console.log(res.data);
 		});
 	}
-	
+
 	// event login
 	$scope.btnLogin = function(){
 		console.log($scope.login);
@@ -49,7 +49,7 @@ app.controller('myController', ['$scope','$http','$cookies', function($scope, $h
 				$scope.currentUser = res.data.user.fullname;
 				$cookies.user 	   = res.data.user.username;
 			}
-			
+
 		});
 	}
 
@@ -72,10 +72,8 @@ app.controller('myController', ['$scope','$http','$cookies', function($scope, $h
 	$http.get('/tamsu').then(function(res){
 		$scope.tamsu = res.data;
 	});
-	$http.get('/views/tamsu').then(function(res){
-		$scope.tamsuAll = res.data;
-	});
-	
+
+
 
 	// get meovat
 	$http.get('/meovatLeft').then(function(res){
@@ -124,23 +122,13 @@ app.controller('myController', ['$scope','$http','$cookies', function($scope, $h
 	// get seemore
 	$http.get('/seemore').then(function(res){
 		$scope.repeatSeemore = res.data;
-		
+
 	});
 	$http.get('/seemore').then(function(res){
 		$scope.repeatSeemore = res.data;
-		
+
 	});
 
-	// $http.get('/detail/1').then(function(res){
-	// 	$scope.detail = res.data;
-	// 	// console.log(res.data);
-	// 	console.log(res.data.title)
-	// });
-	// $http.get('/detail?id=:id').then(function(res){
-	// 	$scope.detail = res.data;
-	// 	// console.log(res.data);
-	// 	console.log(res.data.title)
-	// });
 	// comment
 	var comment = function(){
 		$http.get('/detail/comment').then(function(res){
@@ -162,6 +150,6 @@ app.controller('myController', ['$scope','$http','$cookies', function($scope, $h
 			alert(res.data);
 		});
 	}
+
 }]);
 })();
-	
